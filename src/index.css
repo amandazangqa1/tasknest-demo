@@ -2,5 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
-/* small helper to ensure full-height pages */
-html, body, #root { height: 100%; }
+/* Background image */
+body {
+  background-image: url('/background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+/* Blurred overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url('/background.jpg') center/cover no-repeat;
+  filter: blur(12px) brightness(0.8);
+  z-index: -1;
+}
