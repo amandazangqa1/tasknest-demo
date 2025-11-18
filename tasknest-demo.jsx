@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Users, Briefcase, Shield, MapPin, DollarSign, Calendar, Clock, CheckCircle, Star, Wallet, TrendingUp, Search, Menu, X, ChevronRight, Award, Bell, ArrowLeft, Send, MessageSquare, Upload } from 'lucide-react';
+import { Users, Briefcase, Shield, MapPin, DollarSign, Calendar, Clock, CheckCircle, Star, Wallet, TrendingUp, Search, Menu, X, ChevronRight, Award, Bell, ArrowLeft, Send, MessageSquare, Upload, Home, Sparkles, Truck, Trees, Wrench, Laptop, ShoppingCart, Package } from 'lucide-react';
 
 export default function TaskNestDemo() {
   const [currentView, setCurrentView] = useState('landing');
@@ -18,7 +18,6 @@ export default function TaskNestDemo() {
   const [showNotification, setShowNotification] = useState(false);
   const [notificationMessage, setNotificationMessage] = useState('');
 
-  // TaskNest Logo Component
   const TaskNestLogo = ({ size = 'md' }) => {
     const sizes = {
       sm: 'w-8 h-8',
@@ -27,15 +26,10 @@ export default function TaskNestDemo() {
     };
     return (
       <svg className={sizes[size]} viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-        {/* Outer circle */}
         <circle cx="100" cy="100" r="85" stroke="currentColor" strokeWidth="6"/>
-        
-        {/* Anchor shape */}
         <path d="M100 50 L100 130" stroke="currentColor" strokeWidth="8" strokeLinecap="round"/>
         <path d="M70 130 L100 130 L130 130" stroke="currentColor" strokeWidth="8" strokeLinecap="round"/>
         <circle cx="100" cy="55" r="8" fill="currentColor"/>
-        
-        {/* Nest/wave layers below anchor */}
         <path d="M55 140 Q100 170 145 140" stroke="currentColor" strokeWidth="6" strokeLinecap="round" fill="none"/>
         <path d="M60 150 Q100 175 140 150" stroke="currentColor" strokeWidth="6" strokeLinecap="round" fill="none"/>
         <path d="M65 160 Q100 180 135 160" stroke="currentColor" strokeWidth="6" strokeLinecap="round" fill="none"/>
@@ -55,7 +49,7 @@ export default function TaskNestDemo() {
     { id: 3, taskerName: 'Sipho Ndlovu', rating: 4.8, completedTasks: 112, price: 'R800', proposal: 'Quick and reliable service. Can start immediately if needed.', availability: 'Available today', verified: true }
   ];
 
-  const categories = ['Home Repair', 'Cleaning', 'Moving', 'Outdoor', 'Assembly', 'Digital', 'Other'];
+  const categories = ['Home Repair', 'Cleaning', 'Moving', 'Outdoor', 'Assembly', 'Other'];
 
   const LandingView = () => (
     <div className="min-h-screen bg-gradient-to-br from-cyan-900 via-teal-900 to-slate-900">
@@ -74,7 +68,8 @@ export default function TaskNestDemo() {
 
       <div className="max-w-7xl mx-auto px-6 py-20 text-center">
         <h1 className="text-6xl font-bold text-white mb-6">Get Things Done with <span className="text-cyan-400">TaskNest</span></h1>
-        <p className="text-xl text-white/90 mb-12 max-w-3xl mx-auto">Connect with skilled professionals for any task. Post a job or find work — all in one trusted marketplace.</p>
+        <p className="text-xl text-white/90 mb-4 max-w-3xl mx-auto">Connect with skilled professionals for any task. Post a job or find work — all in one trusted marketplace.</p>
+        <p className="text-2xl text-cyan-300 mb-12 font-semibold italic">Connecting Communities, One Task At A Time.</p>
         
         <div className="flex justify-center space-x-6 mb-16">
           <button onClick={() => { setUserRole('requester'); setCurrentView('requester-dashboard'); }} className="group px-8 py-4 bg-white text-gray-800 rounded-xl font-semibold text-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all">
@@ -103,7 +98,70 @@ export default function TaskNestDemo() {
           </div>
         </div>
 
-        {/* Overview Section */}
+        {/* Task Categories Section */}
+        <div className="mb-20">
+          <h2 className="text-4xl font-bold text-white mb-4 text-center">Popular Task Categories</h2>
+          <p className="text-xl text-white/80 mb-12 text-center">From home repairs to errands, we've got you covered</p>
+          
+          <div className="grid grid-cols-4 gap-6">
+            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition cursor-pointer text-center group">
+              <div className="w-16 h-16 bg-cyan-500/20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-cyan-500/30 transition">
+                <Home className="w-8 h-8 text-cyan-300" />
+              </div>
+              <h3 className="text-lg font-bold text-white mb-2">Home Repair</h3>
+              <p className="text-sm text-white/70">Plumbing, electrical, painting & more</p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition cursor-pointer text-center group">
+              <div className="w-16 h-16 bg-teal-500/20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-teal-500/30 transition">
+                <Sparkles className="w-8 h-8 text-teal-300" />
+              </div>
+              <h3 className="text-lg font-bold text-white mb-2">Cleaning</h3>
+              <p className="text-sm text-white/70">Home, office & deep cleaning services</p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition cursor-pointer text-center group">
+              <div className="w-16 h-16 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-purple-500/30 transition">
+                <Truck className="w-8 h-8 text-purple-300" />
+              </div>
+              <h3 className="text-lg font-bold text-white mb-2">Moving & Delivery</h3>
+              <p className="text-sm text-white/70">Furniture, packages & grocery delivery</p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition cursor-pointer text-center group">
+              <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-green-500/30 transition">
+                <Trees className="w-8 h-8 text-green-300" />
+              </div>
+              <h3 className="text-lg font-bold text-white mb-2">Outdoor</h3>
+              <p className="text-sm text-white/70">Gardening, landscaping & yard work</p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition cursor-pointer text-center group">
+              <div className="w-16 h-16 bg-orange-500/20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-orange-500/30 transition">
+                <Wrench className="w-8 h-8 text-orange-300" />
+              </div>
+              <h3 className="text-lg font-bold text-white mb-2">Assembly</h3>
+              <p className="text-sm text-white/70">Furniture & appliance installation</p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition cursor-pointer text-center group">
+              <div className="w-16 h-16 bg-pink-500/20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-pink-500/30 transition">
+                <ShoppingCart className="w-8 h-8 text-pink-300" />
+              </div>
+              <h3 className="text-lg font-bold text-white mb-2">Errands</h3>
+              <p className="text-sm text-white/70">Shopping, queue waiting & pickups</p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition cursor-pointer text-center group">
+              <div className="w-16 h-16 bg-yellow-500/20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-yellow-500/30 transition">
+                <Package className="w-8 h-8 text-yellow-300" />
+              </div>
+              <h3 className="text-lg font-bold text-white mb-2">Other</h3>
+              <p className="text-sm text-white/70">Pet care, events & custom tasks</p>
+            </div>
+          </div>
+        </div>
+
         <div className="bg-white/10 backdrop-blur-md rounded-2xl p-10 border border-white/20 mb-12 text-left">
           <h2 className="text-3xl font-bold text-white mb-6 text-center">About TaskNest</h2>
           <p className="text-lg text-white/90 leading-relaxed">
@@ -111,7 +169,6 @@ export default function TaskNestDemo() {
           </p>
         </div>
 
-        {/* Mission & Vision Section */}
         <div className="grid grid-cols-2 gap-8 mb-20">
           <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 text-left">
             <h3 className="text-2xl font-bold text-cyan-400 mb-4">Our Mission</h3>
@@ -127,7 +184,6 @@ export default function TaskNestDemo() {
           </div>
         </div>
 
-        {/* Meet The Team Section */}
         <div className="bg-white/10 backdrop-blur-md rounded-2xl p-10 border border-white/20">
           <h2 className="text-3xl font-bold text-white mb-10">Meet The Team</h2>
           <div className="grid grid-cols-3 gap-8">
@@ -150,7 +206,6 @@ export default function TaskNestDemo() {
         </div>
       </div>
 
-      {/* Footer */}
       <footer className="bg-slate-900/50 border-t border-white/10 py-12">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-4 gap-8 mb-8">
@@ -159,7 +214,7 @@ export default function TaskNestDemo() {
                 <TaskNestLogo size="md" />
                 <span className="text-xl font-bold text-white">TaskNest</span>
               </div>
-              <p className="text-white/70 text-sm">Connecting communities, empowering people.</p>
+              <p className="text-white/70 text-sm">Connecting Communities, One Task At A Time.</p>
             </div>
             <div>
               <h4 className="text-white font-semibold mb-4">Platform</h4>
@@ -281,6 +336,16 @@ export default function TaskNestDemo() {
       setNewTask(prev => ({...prev, [field]: value}));
     };
 
+    const handleSubmit = () => {
+      if (newTask.title && newTask.budget && newTask.category) {
+        setPostedTask({...newTask});
+        showNotif('✓ Task posted successfully! Taskers are viewing your task now.');
+        setCurrentView('requester-dashboard');
+      } else {
+        showNotif('⚠ Please fill in all required fields');
+      }
+    };
+
     return (
       <div className="min-h-screen bg-gray-50">
         <nav className="bg-white shadow-sm border-b">
@@ -305,32 +370,32 @@ export default function TaskNestDemo() {
               </div>
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Category</label>
-                <select value={newTask.category} onChange={(e) => handleInputChange('category', e.target.value)} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500">
+                <select value={newTask.category} onChange={(e) => handleInputChange('category', e.target.value)} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-cyan-800">
                   <option value="">Select a category</option>
                   {categories.map(cat => <option key={cat} value={cat}>{cat}</option>)}
                 </select>
               </div>
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Description</label>
-                <textarea value={newTask.description} onChange={(e) => handleInputChange('description', e.target.value)} placeholder="Describe what needs to be done..." rows="4" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500" />
+                <textarea value={newTask.description} onChange={(e) => handleInputChange('description', e.target.value)} placeholder="Describe what needs to be done..." rows="4" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-cyan-800" />
               </div>
               <div className="grid grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">Budget ($)</label>
-                  <input type="number" value={newTask.budget} onChange={(e) => handleInputChange('budget', e.target.value)} placeholder="100" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500" />
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">Budget (R)</label>
+                  <input type="number" value={newTask.budget} onChange={(e) => handleInputChange('budget', e.target.value)} placeholder="100" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-cyan-800" />
                 </div>
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-2">Deadline</label>
-                  <input type="text" value={newTask.deadline} onChange={(e) => handleInputChange('deadline', e.target.value)} placeholder="e.g., 2 days, Next week" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500" />
+                  <input type="text" value={newTask.deadline} onChange={(e) => handleInputChange('deadline', e.target.value)} placeholder="e.g., 2 days, Next week" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-cyan-800" />
                 </div>
               </div>
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Location</label>
-                <input type="text" value={newTask.location} onChange={(e) => handleInputChange('location', e.target.value)} placeholder="e.g., Downtown, Remote" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500" />
+                <input type="text" value={newTask.location} onChange={(e) => handleInputChange('location', e.target.value)} placeholder="e.g., Downtown, Remote" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-cyan-800" />
               </div>
               <div className="flex space-x-4 pt-4">
                 <button onClick={() => setCurrentView('requester-dashboard')} className="flex-1 px-6 py-3 border border-gray-300 text-gray-700 rounded-lg font-semibold hover:bg-gray-50 transition">Cancel</button>
-                <button onClick={() => { if (newTask.title && newTask.budget && newTask.category) { setPostedTask({...newTask}); showNotif('✓ Task posted successfully! Taskers are viewing your task now.'); setCurrentView('requester-dashboard'); } else { showNotif('⚠ Please fill in all required fields'); } }} className="flex-1 px-6 py-3 bg-teal-600 text-white rounded-lg font-semibold hover:bg-teal-700 transition">Post Task</button>
+                <button onClick={handleSubmit} className="flex-1 px-6 py-3 bg-teal-600 text-white rounded-lg font-semibold hover:bg-teal-700 transition">Post Task</button>
               </div>
             </div>
           </div>
@@ -346,7 +411,7 @@ export default function TaskNestDemo() {
           <div className="flex items-center space-x-4">
             <button onClick={() => setCurrentView('requester-dashboard')} className="p-2 hover:bg-gray-100 rounded-lg"><ArrowLeft className="w-6 h-6 text-gray-600" /></button>
             <div className="flex items-center space-x-2">
-              <Briefcase className="w-8 h-8 text-blue-600" />
+              <TaskNestLogo size="md" />
               <span className="text-2xl font-bold text-gray-800">TaskNest</span>
             </div>
           </div>
@@ -357,7 +422,7 @@ export default function TaskNestDemo() {
         <div className="bg-white rounded-xl p-6 mb-6 shadow-sm">
           <h3 className="text-2xl font-bold text-gray-800 mb-2">{postedTask?.title}</h3>
           <div className="flex items-center space-x-6 text-gray-600">
-            <span className="flex items-center"><DollarSign className="w-4 h-4 mr-1" /> Budget: ${postedTask?.budget}</span>
+            <span className="flex items-center"><DollarSign className="w-4 h-4 mr-1" /> Budget: R{postedTask?.budget}</span>
             <span className="flex items-center"><Calendar className="w-4 h-4 mr-1" /> {postedTask?.deadline}</span>
             <span className="flex items-center"><MapPin className="w-4 h-4 mr-1" /> {postedTask?.location}</span>
           </div>
@@ -383,7 +448,7 @@ export default function TaskNestDemo() {
                   </div>
                 </div>
                 <div className="text-right">
-                  <p className="text-3xl font-bold text-green-600">${offer.price}</p>
+                  <p className="text-3xl font-bold text-green-600">{offer.price}</p>
                   <p className="text-sm text-gray-500">Offered price</p>
                 </div>
               </div>
@@ -406,7 +471,7 @@ export default function TaskNestDemo() {
           <div className="flex items-center space-x-4">
             <button onClick={() => setCurrentView('requester-dashboard')} className="p-2 hover:bg-gray-100 rounded-lg"><ArrowLeft className="w-6 h-6 text-gray-600" /></button>
             <div className="flex items-center space-x-2">
-              <Briefcase className="w-8 h-8 text-blue-600" />
+              <TaskNestLogo size="md" />
               <span className="text-2xl font-bold text-gray-800">TaskNest</span>
             </div>
           </div>
@@ -419,7 +484,7 @@ export default function TaskNestDemo() {
         <div className="grid grid-cols-3 gap-6 mb-8">
           <div className="bg-white rounded-xl p-6 shadow-sm"><p className="text-sm text-gray-500 mb-2">Status</p><p className="text-xl font-bold text-blue-600">In Progress</p></div>
           <div className="bg-white rounded-xl p-6 shadow-sm"><p className="text-sm text-gray-500 mb-2">Tasker</p><p className="text-xl font-bold text-gray-800">{taskInProgress?.tasker}</p></div>
-          <div className="bg-white rounded-xl p-6 shadow-sm"><p className="text-sm text-gray-500 mb-2">Amount</p><p className="text-xl font-bold text-green-600">${taskInProgress?.price}</p></div>
+          <div className="bg-white rounded-xl p-6 shadow-sm"><p className="text-sm text-gray-500 mb-2">Amount</p><p className="text-xl font-bold text-green-600">{taskInProgress?.price}</p></div>
         </div>
 
         <div className="bg-white rounded-xl p-6 mb-6 shadow-sm">
@@ -546,7 +611,7 @@ export default function TaskNestDemo() {
       <nav className="bg-white shadow-sm border-b">
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
           <div className="flex items-center space-x-2">
-            <Briefcase className="w-8 h-8 text-blue-600" />
+            <TaskNestLogo size="md" />
             <span className="text-2xl font-bold text-gray-800">TaskNest</span>
           </div>
         </div>
@@ -556,14 +621,14 @@ export default function TaskNestDemo() {
         <div className="bg-white rounded-xl p-12 shadow-sm text-center">
           <div className="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6"><CheckCircle className="w-16 h-16 text-green-600" /></div>
           <h1 className="text-4xl font-bold text-gray-800 mb-4">Payment Released Successfully!</h1>
-          <p className="text-xl text-gray-600 mb-8">${taskInProgress?.price} has been sent to {taskInProgress?.tasker}'s wallet</p>
+          <p className="text-xl text-gray-600 mb-8">{taskInProgress?.price} has been sent to {taskInProgress?.tasker}'s wallet</p>
 
           <div className="bg-gray-50 rounded-lg p-6 mb-8">
             <h3 className="font-semibold text-gray-800 mb-4">Transaction Details</h3>
             <div className="space-y-3 text-left">
               <div className="flex justify-between"><span className="text-gray-600">Task</span><span className="font-semibold">{taskInProgress?.title}</span></div>
               <div className="flex justify-between"><span className="text-gray-600">Tasker</span><span className="font-semibold">{taskInProgress?.tasker}</span></div>
-              <div className="flex justify-between"><span className="text-gray-600">Amount Released</span><span className="font-semibold text-green-600">${taskInProgress?.price}</span></div>
+              <div className="flex justify-between"><span className="text-gray-600">Amount Released</span><span className="font-semibold text-green-600">{taskInProgress?.price}</span></div>
               <div className="flex justify-between"><span className="text-gray-600">Transaction ID</span><span className="font-mono text-sm text-gray-500">#TXN-{Math.random().toString(36).substr(2, 9).toUpperCase()}</span></div>
               <div className="flex justify-between"><span className="text-gray-600">Date</span><span className="text-gray-500">{new Date().toLocaleDateString()}</span></div>
             </div>
