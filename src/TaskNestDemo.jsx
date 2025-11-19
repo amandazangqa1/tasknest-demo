@@ -106,6 +106,93 @@ export default function TaskNestDemo() {
           </div>
         </div>
 
+        {/* Popular Task Categories Section */}
+        <div className="mb-20">
+          <div className="text-center mb-10">
+            <h2 className="text-4xl font-bold text-white mb-3">Popular Task Categories</h2>
+            <p className="text-xl text-white/80">From home repairs to errands, we've got you covered</p>
+          </div>
+          <div className="grid grid-cols-4 gap-6">
+            <div className={`${FROST} p-6 hover:shadow-2xl transform hover:-translate-y-2 transition-all cursor-pointer group`}>
+              <div className="w-16 h-16 bg-cyan-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-cyan-500 transition">
+                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                </svg>
+              </div>
+              <h3 className="text-lg font-bold text-white text-center mb-2">Home Repair</h3>
+              <p className="text-white/70 text-sm text-center">Plumbing, electrical, painting & more</p>
+            </div>
+            
+            <div className={`${FROST} p-6 hover:shadow-2xl transform hover:-translate-y-2 transition-all cursor-pointer group`}>
+              <div className="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-purple-500 transition">
+                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 className="text-lg font-bold text-white text-center mb-2">Cleaning</h3>
+              <p className="text-white/70 text-sm text-center">Home, office & deep cleaning services</p>
+            </div>
+            
+            <div className={`${FROST} p-6 hover:shadow-2xl transform hover:-translate-y-2 transition-all cursor-pointer group`}>
+              <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-green-500 transition">
+                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                </svg>
+              </div>
+              <h3 className="text-lg font-bold text-white text-center mb-2">Moving & Delivery</h3>
+              <p className="text-white/70 text-sm text-center">Furniture, packages & grocery delivery</p>
+            </div>
+            
+            <div className={`${FROST} p-6 hover:shadow-2xl transform hover:-translate-y-2 transition-all cursor-pointer group`}>
+              <div className="w-16 h-16 bg-amber-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-amber-500 transition">
+                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
+              </div>
+              <h3 className="text-lg font-bold text-white text-center mb-2">Outdoor</h3>
+              <p className="text-white/70 text-sm text-center">Gardening, landscaping & yard work</p>
+            </div>
+            
+            <div className={`${FROST} p-6 hover:shadow-2xl transform hover:-translate-y-2 transition-all cursor-pointer group`}>
+              <div className="w-16 h-16 bg-pink-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-pink-500 transition">
+                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+                </svg>
+              </div>
+              <h3 className="text-lg font-bold text-white text-center mb-2">Assembly</h3>
+              <p className="text-white/70 text-sm text-center">Furniture & appliance installation</p>
+            </div>
+            
+            <div className={`${FROST} p-6 hover:shadow-2xl transform hover:-translate-y-2 transition-all cursor-pointer group`}>
+              <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-500 transition">
+                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                </svg>
+              </div>
+              <h3 className="text-lg font-bold text-white text-center mb-2">Errands</h3>
+              <p className="text-white/70 text-sm text-center">Shopping, queue waiting & pickups</p>
+            </div>
+            
+            <div className={`${FROST} p-6 hover:shadow-2xl transform hover:-translate-y-2 transition-all cursor-pointer group`}>
+              <div className="w-16 h-16 bg-rose-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-rose-500 transition">
+                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
+              </div>
+              <h3 className="text-lg font-bold text-white text-center mb-2">Other</h3>
+              <p className="text-white/70 text-sm text-center">Pet care, events & custom tasks</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Overview Section */}
+        <div className={`${FROST} p-10 mb-12 text-left`}>
+          <h2 className="text-3xl font-bold text-white mb-6 text-center">About TaskNest</h2>
+          <p className="text-lg text-white/90 leading-relaxed">
+            TaskNest is a South African-born mobile and web platform that connects everyday people with trusted local "taskers" who can run errands and complete small jobs. From deliveries and grocery pickups to queueing and household tasks, TaskNest simplifies daily life while creating income opportunities for unemployed youth and informal workers.
+          </p>
+        </div>
+
         {/* Overview Section */}
         <div className={`${FROST} p-10 mb-12 text-left`}>
           <h2 className="text-3xl font-bold text-white mb-6 text-center">About TaskNest</h2>
