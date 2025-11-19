@@ -4,7 +4,7 @@
 
 /* Background image */
 body {
-  background-image: url('/background.jpg');
+  background-image: url('/background.png');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -16,7 +16,7 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background: url('/background.jpg') center/cover no-repeat;
+  background: url('/background.png') center/cover no-repeat;
   filter: blur(12px) brightness(0.8);
   z-index: -1;
 }
