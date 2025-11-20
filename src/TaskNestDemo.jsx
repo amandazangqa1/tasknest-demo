@@ -508,3 +508,79 @@ export default function TaskNestDemo() {
 
         <div className="grid grid-cols-3 gap-6 mb-8">
           <div className={`${FROST} p-6`}><p className="text-sm text-white/70 mb-2
+            <option value="" className="text-black">Select a category</option>
+{categories.map((cat, i) => (
+  <option key={i} value={cat} className="text-black">{cat}</option>
+))}
+</select>
+</div>
+
+<div>
+  <label className="block text-sm font-semibold text-white/90 mb-2">Description</label>
+  <textarea
+    value={newTask.description}
+    onChange={(e) => handleInputChange('description', e.target.value)}
+    placeholder="Describe the task in detail…"
+    className="w-full px-4 py-3 border border-white/30 rounded-lg bg-white/5 text-white placeholder-white/60 focus:outline-none focus:border-cyan-300 h-32"
+  />
+</div>
+
+<div className="grid grid-cols-2 gap-6">
+  <div>
+    <label className="block text-sm font-semibold text-white/90 mb-2">Budget (R)</label>
+    <input
+      type="number"
+      value={newTask.budget}
+      onChange={(e) => handleInputChange('budget', e.target.value)}
+      placeholder="e.g., 750"
+      className="w-full px-4 py-3 border border-white/30 rounded-lg bg-white/5 text-white placeholder-white/60 focus:outline-none focus:border-cyan-300"
+    />
+  </div>
+
+  <div>
+    <label className="block text-sm font-semibold text-white/90 mb-2">Deadline</label>
+    <input
+      type="date"
+      value={newTask.deadline}
+      onChange={(e) => handleInputChange('deadline', e.target.value)}
+      className="w-full px-4 py-3 border border-white/30 rounded-lg bg-white/5 text-white focus:outline-none focus:border-cyan-300"
+    />
+  </div>
+</div>
+
+<div>
+  <label className="block text-sm font-semibold text-white/90 mb-2">Location</label>
+  <input
+    type="text"
+    value={newTask.location}
+    onChange={(e) => handleInputChange('location', e.target.value)}
+    placeholder="e.g., Site B Khayelitsha, House No. 54"
+    className="w-full px-4 py-3 border border-white/30 rounded-lg bg-white/5 text-white placeholder-white/60 focus:outline-none focus:border-cyan-300"
+  />
+</div>
+
+<button
+  onClick={() => {
+    setPostedTask(newTask);
+    setNewTask({
+      title: '',
+      description: '',
+      budget: '',
+      location: '',
+      deadline: '',
+      category: ''
+    });
+    setCurrentView('requester-dashboard');
+    showNotif('Task posted successfully!');
+  }}
+  className="w-full mt-8 py-4 bg-cyan-600 hover:bg-cyan-700 text-white font-semibold rounded-lg transition"
+>
+  Post Task
+</button>
+
+</div>
+</div>
+</div>
+);
+
+            
