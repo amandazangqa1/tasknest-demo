@@ -57,8 +57,8 @@ export default function TaskNestDemo() {
 
   const categories = ['Home Repair', 'Cleaning', 'Moving', 'Outdoor', 'Assembly', 'Digital', 'Other'];
 
-  // common frosted panel class - DARKENED for better text visibility
-  const FROST = "bg-black/40 backdrop-blur-lg border border-white/30 rounded-2xl shadow-lg text-white";
+  // common frosted panel class
+  const FROST = "bg-white/30 backdrop-blur-lg border border-white/40 rounded-2xl shadow-lg text-white";
 
   const LandingView = () => (
     <div className="w-full min-h-screen bg-transparent">
@@ -104,93 +104,6 @@ export default function TaskNestDemo() {
             <h3 className="text-xl font-bold text-white mb-2">Quality Service</h3>
             <p className="text-white/80">Rated professionals you can trust</p>
           </div>
-        </div>
-
-        {/* Popular Task Categories Section */}
-        <div className="mb-20">
-          <div className="text-center mb-10">
-            <h2 className="text-4xl font-bold text-white mb-3">Popular Task Categories</h2>
-            <p className="text-xl text-white/80">From home repairs to errands, we've got you covered</p>
-          </div>
-          <div className="grid grid-cols-4 gap-6">
-            <div className={`${FROST} p-6 hover:shadow-2xl transform hover:-translate-y-2 transition-all cursor-pointer group`}>
-              <div className="w-16 h-16 bg-cyan-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-cyan-500 transition">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                </svg>
-              </div>
-              <h3 className="text-lg font-bold text-white text-center mb-2">Home Repair</h3>
-              <p className="text-white/70 text-sm text-center">Plumbing, electrical, painting & more</p>
-            </div>
-            
-            <div className={`${FROST} p-6 hover:shadow-2xl transform hover:-translate-y-2 transition-all cursor-pointer group`}>
-              <div className="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-purple-500 transition">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <h3 className="text-lg font-bold text-white text-center mb-2">Cleaning</h3>
-              <p className="text-white/70 text-sm text-center">Home, office & deep cleaning services</p>
-            </div>
-            
-            <div className={`${FROST} p-6 hover:shadow-2xl transform hover:-translate-y-2 transition-all cursor-pointer group`}>
-              <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-green-500 transition">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
-                </svg>
-              </div>
-              <h3 className="text-lg font-bold text-white text-center mb-2">Moving & Delivery</h3>
-              <p className="text-white/70 text-sm text-center">Furniture, packages & grocery delivery</p>
-            </div>
-            
-            <div className={`${FROST} p-6 hover:shadow-2xl transform hover:-translate-y-2 transition-all cursor-pointer group`}>
-              <div className="w-16 h-16 bg-amber-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-amber-500 transition">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-                </svg>
-              </div>
-              <h3 className="text-lg font-bold text-white text-center mb-2">Outdoor</h3>
-              <p className="text-white/70 text-sm text-center">Gardening, landscaping & yard work</p>
-            </div>
-            
-            <div className={`${FROST} p-6 hover:shadow-2xl transform hover:-translate-y-2 transition-all cursor-pointer group`}>
-              <div className="w-16 h-16 bg-pink-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-pink-500 transition">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
-                </svg>
-              </div>
-              <h3 className="text-lg font-bold text-white text-center mb-2">Assembly</h3>
-              <p className="text-white/70 text-sm text-center">Furniture & appliance installation</p>
-            </div>
-            
-            <div className={`${FROST} p-6 hover:shadow-2xl transform hover:-translate-y-2 transition-all cursor-pointer group`}>
-              <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-500 transition">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-                </svg>
-              </div>
-              <h3 className="text-lg font-bold text-white text-center mb-2">Errands</h3>
-              <p className="text-white/70 text-sm text-center">Shopping, queue waiting & pickups</p>
-            </div>
-            
-            <div className={`${FROST} p-6 hover:shadow-2xl transform hover:-translate-y-2 transition-all cursor-pointer group`}>
-              <div className="w-16 h-16 bg-rose-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-rose-500 transition">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-                </svg>
-              </div>
-              <h3 className="text-lg font-bold text-white text-center mb-2">Other</h3>
-              <p className="text-white/70 text-sm text-center">Pet care, events & custom tasks</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Overview Section */}
-        <div className={`${FROST} p-10 mb-12 text-left`}>
-          <h2 className="text-3xl font-bold text-white mb-6 text-center">About TaskNest</h2>
-          <p className="text-lg text-white/90 leading-relaxed">
-            TaskNest is a South African-born mobile and web platform that connects everyday people with trusted local "taskers" who can run errands and complete small jobs. From deliveries and grocery pickups to queueing and household tasks, TaskNest simplifies daily life while creating income opportunities for unemployed youth and informal workers.
-          </p>
         </div>
 
         {/* Overview Section */}
@@ -397,7 +310,7 @@ export default function TaskNestDemo() {
                 <label className="block text-sm font-semibold text-white/90 mb-2">Category</label>
                 <select value={newTask.category} onChange={(e) => handleInputChange('category', e.target.value)} className="w-full px-4 py-3 border border-white/30 rounded-lg bg-white/5 text-white focus:outline-none focus:border-cyan-300">
                   <option value="" className="text-black">Select a category</option>
-                  {categories.map(cat => <option key={cat} value={cat} className="text-black">{cat}</option>)}
+                  {categories.map(cat => <option key={cat} value={cat}>{cat}</option>)}
                 </select>
               </div>
               <div>
@@ -507,80 +420,197 @@ export default function TaskNestDemo() {
         <h2 className="text-3xl font-bold text-white mb-8">Task In Progress</h2>
 
         <div className="grid grid-cols-3 gap-6 mb-8">
-          <div className={`${FROST} p-6`}><p className="text-sm text-white/70 mb-2
-            <option value="" className="text-black">Select a category</option>
-{categories.map((cat, i) => (
-  <option key={i} value={cat} className="text-black">{cat}</option>
-))}
-</select>
-</div>
+          <div className={`${FROST} p-6`}><p className="text-sm text-white/70 mb-2">Status</p><p className="text-xl font-bold text-white">In Progress</p></div>
+          <div className={`${FROST} p-6`}><p className="text-sm text-white/70 mb-2">Tasker</p><p className="text-xl font-bold text-white">{taskInProgress?.tasker}</p></div>
+          <div className={`${FROST} p-6`}><p className="text-sm text-white/70 mb-2">Amount</p><p className="text-xl font-bold text-white">{taskInProgress?.price}</p></div>
+        </div>
 
-<div>
-  <label className="block text-sm font-semibold text-white/90 mb-2">Description</label>
-  <textarea
-    value={newTask.description}
-    onChange={(e) => handleInputChange('description', e.target.value)}
-    placeholder="Describe the task in detail…"
-    className="w-full px-4 py-3 border border-white/30 rounded-lg bg-white/5 text-white placeholder-white/60 focus:outline-none focus:border-cyan-300 h-32"
-  />
-</div>
+        <div className={`${FROST} p-6 mb-6`}>
+          <h3 className="text-xl font-bold text-white mb-4">Task Details</h3>
+          <div className="space-y-3">
+            <div><p className="text-sm text-white/70">Title</p><p className="text-lg font-semibold text-white">{taskInProgress?.title}</p></div>
+            <div><p className="text-sm text-white/70">Description</p><p className="text-white/90">{taskInProgress?.description}</p></div>
+            <div className="grid grid-cols-3 gap-4 pt-4">
+              <div><p className="text-sm text-white/70">Location</p><p className="text-white font-medium">{taskInProgress?.location}</p></div>
+              <div><p className="text-sm text-white/70">Deadline</p><p className="text-white font-medium">{taskInProgress?.deadline}</p></div>
+              <div><p className="text-sm text-white/70">Category</p><p className="text-white font-medium">{taskInProgress?.category}</p></div>
+            </div>
+          </div>
+        </div>
 
-<div className="grid grid-cols-2 gap-6">
-  <div>
-    <label className="block text-sm font-semibold text-white/90 mb-2">Budget (R)</label>
-    <input
-      type="number"
-      value={newTask.budget}
-      onChange={(e) => handleInputChange('budget', e.target.value)}
-      placeholder="e.g., 750"
-      className="w-full px-4 py-3 border border-white/30 rounded-lg bg-white/5 text-white placeholder-white/60 focus:outline-none focus:border-cyan-300"
-    />
-  </div>
+        <div className={`${FROST} p-6 mb-6`}>
+          <h3 className="text-xl font-bold text-white mb-4">Progress Timeline</h3>
+          <div className="space-y-4">
+            <div className="flex items-start space-x-4">
+              <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center"><CheckCircle className="w-5 h-5 text-white" /></div>
+              <div className="flex-1"><p className="font-semibold text-white">Task Posted</p><p className="text-sm text-white/70">Just now</p></div>
+            </div>
+            <div className="flex items-start space-x-4">
+              <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center"><CheckCircle className="w-5 h-5 text-white" /></div>
+              <div className="flex-1"><p className="font-semibold text-white">Offer Accepted</p><p className="text-sm text-white/70">Just now</p></div>
+            </div>
+            <div className="flex items-start space-x-4">
+              <div className="w-8 h-8 bg-cyan-700 rounded-full flex items-center justify-center"><CheckCircle className="w-5 h-5 text-white" /></div>
+              <div className="flex-1"><p className="font-semibold text-white">Work in Progress</p><p className="text-sm text-white/70">Current status</p></div>
+            </div>
+            <div className="flex items-start space-x-4">
+              <div className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center"><CheckCircle className="w-5 h-5 text-white" /></div>
+              <div className="flex-1"><p className="font-semibold text-white/60">Completion & Payment</p><p className="text-sm text-white/60">Pending</p></div>
+            </div>
+          </div>
+        </div>
 
-  <div>
-    <label className="block text-sm font-semibold text-white/90 mb-2">Deadline</label>
-    <input
-      type="date"
-      value={newTask.deadline}
-      onChange={(e) => handleInputChange('deadline', e.target.value)}
-      className="w-full px-4 py-3 border border-white/30 rounded-lg bg-white/5 text-white focus:outline-none focus:border-cyan-300"
-    />
-  </div>
-</div>
+        <div className={`${FROST} p-6 mb-6`}>
+          <div className="flex items-start space-x-4">
+            <MessageSquare className="w-6 h-6 text-white mt-1" />
+            <div className="flex-1">
+              <h4 className="font-semibold text-white mb-2">Communication</h4>
+              <p className="text-white/80 mb-4">Stay in touch with your tasker for updates and questions.</p>
+              <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">Send Message</button>
+            </div>
+          </div>
+        </div>
 
-<div>
-  <label className="block text-sm font-semibold text-white/90 mb-2">Location</label>
-  <input
-    type="text"
-    value={newTask.location}
-    onChange={(e) => handleInputChange('location', e.target.value)}
-    placeholder="e.g., Site B Khayelitsha, House No. 54"
-    className="w-full px-4 py-3 border border-white/30 rounded-lg bg-white/5 text-white placeholder-white/60 focus:outline-none focus:border-cyan-300"
-  />
-</div>
+        <div className={`${FROST} p-6`}>
+          <h3 className="text-xl font-bold text-white mb-4">Mark as Complete</h3>
+          <p className="text-white/80 mb-4">Once the tasker has finished the work, you can mark this task as complete. Funds will be released from escrow to the tasker's wallet.</p>
+          <button onClick={() => setCurrentView('task-completion')} className="px-6 py-3 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition">Mark as Complete</button>
+        </div>
+      </div>
+    </div>
+  );
 
-<button
-  onClick={() => {
-    setPostedTask(newTask);
-    setNewTask({
-      title: '',
-      description: '',
-      budget: '',
-      location: '',
-      deadline: '',
-      category: ''
-    });
-    setCurrentView('requester-dashboard');
-    showNotif('Task posted successfully!');
-  }}
-  className="w-full mt-8 py-4 bg-cyan-600 hover:bg-cyan-700 text-white font-semibold rounded-lg transition"
->
-  Post Task
-</button>
+  const TaskCompletionView = () => {
+    const [rating, setRating] = useState(0);
+    const [review, setReview] = useState('');
 
-</div>
-</div>
-</div>
-);
+    return (
+      <div className="w-full min-h-screen bg-transparent">
+        <nav className={`${FROST} shadow-sm`}>
+          <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div className="flex items-center space-x-4">
+              <button onClick={() => setCurrentView('task-tracking')} className="p-2 hover:bg-white/10 rounded-lg"><ArrowLeft className="w-6 h-6 text-white" /></button>
+              <div className="flex items-center space-x-2">
+                <TaskNestLogo size="md" />
+                <span className="text-2xl font-bold text-white">TaskNest</span>
+              </div>
+            </div>
+          </div>
+        </nav>
 
-            
+        <div className="max-w-3xl mx-auto px-6 py-8">
+          <div className={`${FROST} p-8`}>
+            <div className="text-center mb-8">
+              <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4"><CheckCircle className="w-12 h-12 text-green-600" /></div>
+              <h2 className="text-3xl font-bold text-white mb-2">Task Completed!</h2>
+              <p className="text-white/80">Rate your experience with {taskInProgress?.tasker}</p>
+            </div>
+
+            <div className="mb-6">
+              <label className="block text-sm font-semibold text-white mb-3">Your Rating</label>
+              <div className="flex justify-center space-x-2">
+                {[1, 2, 3, 4, 5].map((star) => (
+                  <button key={star} onClick={() => setRating(star)} className="transition-transform hover:scale-110">
+                    <Star className={`w-12 h-12 ${star <= rating ? 'text-yellow-400' : 'text-white/40'}`} />
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="mb-6">
+              <label className="block text-sm font-semibold text-white mb-2">Your Review (Optional)</label>
+              <textarea value={review} onChange={(e) => setReview(e.target.value)} placeholder="Share your experience..." rows="4" className="w-full px-4 py-3 border border-white/30 rounded-lg bg-white/5 text-white placeholder-white/60 focus:outline-none focus:border-cyan-300" />
+            </div>
+
+            <div className={`${FROST} p-6 mb-6`}>
+              <h3 className="font-semibold text-white mb-4">Payment Summary</h3>
+              <div className="space-y-2">
+                <div className="flex justify-between"><span className="text-white/80">Task Amount</span><span className="font-semibold text-white">{taskInProgress?.price}</span></div>
+                <div className="flex justify-between"><span className="text-white/80">Service Fee (15%)</span><span className="font-semibold text-white">{taskInProgress?.price?.includes('R') ? `R${Math.round(parseInt(taskInProgress.price.replace('R', '')) * 0.15)}` : `R${Math.round(Number(taskInProgress?.price) * 0.15)}`}</span></div>
+                <div className="border-t pt-2 mt-2 flex justify-between"><span className="font-bold text-white">Total</span><span className="font-bold text-green-300">{taskInProgress?.price?.includes('R') ? `R${Math.round(parseInt(taskInProgress.price.replace('R', '')) * 1.15)}` : `R${Math.round(Number(taskInProgress?.price) * 1.15)}`}</span></div>
+              </div>
+              <div className="mt-4 bg-white/5 border border-white/20 rounded-lg p-4">
+                <p className="text-sm text-white/80"><CheckCircle className="inline w-4 h-4 mr-1" />Funds will be released to tasker's wallet immediately</p>
+              </div>
+            </div>
+
+            <div className="flex space-x-4">
+              <button onClick={() => setCurrentView('task-tracking')} className="flex-1 px-6 py-3 border border-white/30 text-white rounded-lg font-semibold hover:bg-white/5 transition">Back</button>
+              <button onClick={() => { showNotif('✓ Payment released! Thank you for using TaskNest.'); setCurrentView('payment-success'); }} className="flex-1 px-6 py-3 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition">Confirm & Release Payment</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  const PaymentSuccessView = () => (
+    <div className="w-full min-h-screen bg-transparent">
+      <nav className={`${FROST} shadow-sm`}>
+        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+          <div className="flex items-center space-x-2">
+            <Briefcase className="w-8 h-8 text-white/40" />
+            <span className="text-2xl font-bold text-white">TaskNest</span>
+          </div>
+        </div>
+      </nav>
+
+      <div className="max-w-3xl mx-auto px-6 py-16">
+        <div className={`${FROST} p-12 text-center`}>
+          <div className="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6"><CheckCircle className="w-16 h-16 text-green-600" /></div>
+          <h1 className="text-4xl font-bold text-white mb-4">Payment Released Successfully!</h1>
+          <p className="text-xl text-white/80 mb-8">{taskInProgress?.price} has been sent to {taskInProgress?.tasker}'s wallet</p>
+
+          <div className={`${FROST} p-6 mb-8`}>
+            <h3 className="font-semibold text-white mb-4">Transaction Details</h3>
+            <div className="space-y-3 text-left">
+              <div className="flex justify-between"><span className="text-white/80">Task</span><span className="font-semibold text-white">{taskInProgress?.title}</span></div>
+              <div className="flex justify-between"><span className="text-white/80">Tasker</span><span className="font-semibold text-white">{taskInProgress?.tasker}</span></div>
+              <div className="flex justify-between"><span className="text-white/80">Amount Released</span><span className="font-semibold text-green-300">{taskInProgress?.price}</span></div>
+              <div className="flex justify-between"><span className="text-white/80">Transaction ID</span><span className="font-mono text-sm text-white/70">#TXN-{Math.random().toString(36).substr(2, 9).toUpperCase()}</span></div>
+              <div className="flex justify-between"><span className="text-white/80">Date</span><span className="text-white/70">{new Date().toLocaleDateString()}</span></div>
+            </div>
+          </div>
+
+          <div className={`${FROST} p-6 mb-8`}>
+            <h4 className="font-semibold text-white mb-2">What's Next?</h4>
+            <ul className="text-left space-y-2 text-white/80">
+              <li>✓ Receipt sent to your email</li>
+              <li>✓ Your review has been posted</li>
+              <li>✓ Task marked as completed in your history</li>
+            </ul>
+          </div>
+
+          <div className="flex space-x-4">
+            <button onClick={() => { setPostedTask(null); setTaskInProgress(null); setSelectedOffer(null); setCurrentView('requester-dashboard'); }} className="flex-1 px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition">Back to Dashboard</button>
+            <button onClick={() => setCurrentView('post-task')} className="flex-1 px-6 py-3 border border-white/30 text-white rounded-lg font-semibold hover:bg-white/5 transition">Post Another Task</button>
+          </div>
+
+          <div className="mt-8 pt-8 border-t border-white/10">
+            <p className="text-white/70 text-sm">Need help? Contact our <span className="text-cyan-200 cursor-pointer hover:underline">support team</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+
+  const Notification = () => showNotification && (
+    <div className="fixed top-6 right-6 bg-white/95 border-l-4 border-cyan-700 shadow-lg px-6 py-4 rounded-lg flex items-center space-x-3 z-50">
+      <CheckCircle className="w-6 h-6 text-cyan-700" />
+      <span className="font-semibold text-gray-800">{notificationMessage}</span>
+    </div>
+  );
+
+  return (
+    <div className="w-full h-screen overflow-auto">
+      <Notification />
+      {currentView === 'landing' && <LandingView />}
+      {currentView === 'requester-dashboard' && <RequesterDashboard />}
+      {currentView === 'post-task' && <PostTaskView />}
+      {currentView === 'view-offers' && <ViewOffersView />}
+      {currentView === 'task-tracking' && <TaskTrackingView />}
+      {currentView === 'task-completion' && <TaskCompletionView />}
+      {currentView === 'payment-success' && <PaymentSuccessView />}
+    </div>
+  );
+}
