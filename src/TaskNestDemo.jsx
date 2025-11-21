@@ -17,6 +17,8 @@ export default function TaskNestDemo() {
   const [taskInProgress, setTaskInProgress] = useState(null);
   const [showNotification, setShowNotification] = useState(false);
   const [notificationMessage, setNotificationMessage] = useState('');
+  const [selectedBrowseTask, setSelectedBrowseTask] = useState(null);
+  const [taskerActiveTask, setTaskerActiveTask] = useState(null);
 
   // Universal background component
   const UniversalBackground = ({ children }) => (
@@ -53,6 +55,16 @@ export default function TaskNestDemo() {
   ];
 
   const categories = ['Home Repair', 'Cleaning', 'Moving', 'Outdoor', 'Assembly', 'Other'];
+
+  // Available tasks for taskers to browse
+  const availableTasks = [
+    { id: 1, title: 'Fix leaking kitchen tap', category: 'Home Repair', budget: 'R450', location: 'Sandton, Johannesburg', deadline: 'Today', description: 'Kitchen tap has been leaking for a week. Need someone to fix or replace it.', requester: 'John M.', postedTime: '2 hours ago' },
+    { id: 2, title: 'Deep clean 3-bedroom house', category: 'Cleaning', budget: 'R800', location: 'Rosebank, Johannesburg', deadline: 'Tomorrow', description: 'Full deep cleaning needed including windows, carpets, and kitchen appliances.', requester: 'Sarah K.', postedTime: '4 hours ago' },
+    { id: 3, title: 'Move furniture to new apartment', category: 'Moving', budget: 'R1,200', location: 'Braamfontein to Midrand', deadline: '2 days', description: 'Need help moving a couch, bed, dining table, and boxes to new apartment. About 15km distance.', requester: 'David L.', postedTime: '1 hour ago' },
+    { id: 4, title: 'Garden maintenance and lawn mowing', category: 'Outdoor', budget: 'R350', location: 'Fourways, Johannesburg', deadline: '3 days', description: 'Monthly garden maintenance. Includes mowing, trimming hedges, and weeding flower beds.', requester: 'Linda P.', postedTime: '5 hours ago' },
+    { id: 5, title: 'Assemble IKEA wardrobe', category: 'Assembly', budget: 'R400', location: 'Centurion, Pretoria', deadline: 'This weekend', description: 'Need help assembling a PAX wardrobe system. All parts and tools available.', requester: 'Mike T.', postedTime: '30 minutes ago' },
+    { id: 6, title: 'Pick up groceries and deliver', category: 'Other', budget: 'R150', location: 'Melville, Johannesburg', deadline: 'Today', description: 'Need someone to pick up groceries from Checkers and deliver to my home. List will be provided.', requester: 'Anna B.', postedTime: '1 hour ago' }
+  ];
 
   // Universal Navigation component
   const NavBar = ({ showBack = false, onBack = null, title = null }) => (
@@ -589,6 +601,303 @@ export default function TaskNestDemo() {
     </div>
   );
 
+  // Tasker Dashboard
+  const TaskerDashboard = () => (
+    <UniversalBackground>
+      <NavBar title="Tasker Dashboard" />
+      <div className="max-w-7xl mx-auto px-6 py-8">
+        <div className="grid grid-cols-4 gap-6 mb-8">
+          <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20">
+            <div className="flex items-center justify-between">
+              <div><p className="text-white/70 text-sm">Available Tasks</p><p className="text-3xl font-bold text-white">{availableTasks.length}</p></div>
+              <Search className="w-10 h-10 text-cyan-400/50" />
+            </div>
+          </div>
+          <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20">
+            <div className="flex items-center justify-between">
+              <div><p className="text-white/70 text-sm">Active Jobs</p><p className="text-3xl font-bold text-cyan-400">{taskerActiveTask ? 1 : 0}</p></div>
+              <Briefcase className="w-10 h-10 text-cyan-400/50" />
+            </div>
+          </div>
+          <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20">
+            <div className="flex items-center justify-between">
+              <div><p className="text-white/70 text-sm">Completed</p><p className="text-3xl font-bold text-green-400">32</p></div>
+              <CheckCircle className="w-10 h-10 text-green-400/50" />
+            </div>
+          </div>
+          <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20">
+            <div className="flex items-center justify-between">
+              <div><p className="text-white/70 text-sm">Total Earned</p><p className="text-3xl font-bold text-green-400">R24,500</p></div>
+              <Wallet className="w-10 h-10 text-green-400/50" />
+            </div>
+          </div>
+        </div>
+
+        {/* Tasker Profile Summary */}
+        <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20 mb-8">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-4">
+              <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-teal-600 rounded-full flex items-center justify-center text-white text-2xl font-bold">TM</div>
+              <div>
+                <div className="flex items-center space-x-2">
+                  <h3 className="text-xl font-bold text-white">Thabo Mokwena</h3>
+                  <CheckCircle className="w-5 h-5 text-cyan-400 fill-cyan-400" />
+                </div>
+                <div className="flex items-center space-x-4 text-sm text-white/70">
+                  <span className="flex items-center"><Star className="w-4 h-4 text-yellow-400 fill-yellow-400 mr-1" />4.9 Rating</span>
+                  <span>32 Tasks Completed</span>
+                  <span className="text-green-400">● Online</span>
+                </div>
+              </div>
+            </div>
+            <div className="flex space-x-3">
+              <button className="px-4 py-2 border border-white/30 text-white rounded-lg hover:bg-white/10 transition">Edit Profile</button>
+              <button className="px-4 py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700 transition">View Wallet</button>
+            </div>
+          </div>
+        </div>
+
+        {/* Active Task Section */}
+        {taskerActiveTask && (
+          <div className="mb-8">
+            <h2 className="text-2xl font-bold text-white mb-4">Your Active Job</h2>
+            <div className="bg-cyan-500/20 border border-cyan-400/30 rounded-xl p-6">
+              <div className="flex justify-between items-start mb-4">
+                <div>
+                  <h3 className="text-xl font-bold text-white mb-2">{taskerActiveTask.title}</h3>
+                  <span className="px-3 py-1 bg-cyan-500/30 text-cyan-300 rounded-full text-sm font-medium">{taskerActiveTask.category}</span>
+                </div>
+                <span className="text-2xl font-bold text-green-400">{taskerActiveTask.budget}</span>
+              </div>
+              <p className="text-white/80 mb-4">{taskerActiveTask.description}</p>
+              <div className="flex items-center justify-between text-sm text-white/60 mb-4">
+                <span className="flex items-center"><MapPin className="w-4 h-4 mr-1" /> {taskerActiveTask.location}</span>
+                <span className="flex items-center"><Users className="w-4 h-4 mr-1" /> Client: {taskerActiveTask.requester}</span>
+              </div>
+              <div className="flex space-x-3">
+                <button onClick={() => setCurrentView('tasker-active-job')} className="px-4 py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700 transition">View Details</button>
+                <button className="px-4 py-2 border border-white/30 text-white rounded-lg hover:bg-white/10 transition">Message Client</button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Browse Tasks Section */}
+        <div className="flex justify-between items-center mb-6">
+          <h2 className="text-2xl font-bold text-white">Browse Available Tasks</h2>
+          <div className="flex space-x-3">
+            <select className="px-4 py-2 bg-white/10 border border-white/30 rounded-lg text-white focus:outline-none">
+              <option value="" className="bg-slate-800">All Categories</option>
+              {categories.map(cat => <option key={cat} value={cat} className="bg-slate-800">{cat}</option>)}
+            </select>
+            <select className="px-4 py-2 bg-white/10 border border-white/30 rounded-lg text-white focus:outline-none">
+              <option className="bg-slate-800">Sort: Newest</option>
+              <option className="bg-slate-800">Sort: Highest Pay</option>
+              <option className="bg-slate-800">Sort: Nearest</option>
+            </select>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-2 gap-6">
+          {availableTasks.map(task => (
+            <div key={task.id} className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20 hover:bg-white/15 transition cursor-pointer" onClick={() => { setSelectedBrowseTask(task); setCurrentView('task-detail'); }}>
+              <div className="flex justify-between items-start mb-3">
+                <div>
+                  <h3 className="text-lg font-bold text-white mb-2">{task.title}</h3>
+                  <span className="px-3 py-1 bg-white/10 text-cyan-300 rounded-full text-xs font-medium">{task.category}</span>
+                </div>
+                <span className="text-xl font-bold text-green-400">{task.budget}</span>
+              </div>
+              <p className="text-white/70 text-sm mb-4 line-clamp-2">{task.description}</p>
+              <div className="flex items-center justify-between text-xs text-white/50">
+                <span className="flex items-center"><MapPin className="w-3 h-3 mr-1" /> {task.location}</span>
+                <span className="flex items-center"><Clock className="w-3 h-3 mr-1" /> {task.postedTime}</span>
+              </div>
+              <div className="flex items-center justify-between mt-4 pt-4 border-t border-white/10">
+                <span className="text-white/60 text-sm">Due: {task.deadline}</span>
+                <button className="px-4 py-2 bg-cyan-600 text-white text-sm rounded-lg hover:bg-cyan-700 transition">View & Apply</button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </UniversalBackground>
+  );
+
+  // Task Detail View for Taskers
+  const TaskDetailView = () => {
+    const [proposal, setProposal] = useState('');
+    const [offerPrice, setOfferPrice] = useState('');
+
+    return (
+      <UniversalBackground>
+        <NavBar showBack onBack={() => setCurrentView('tasker-dashboard')} />
+        <div className="max-w-4xl mx-auto px-6 py-8">
+          <div className="bg-white/10 backdrop-blur-md rounded-xl p-8 border border-white/20 mb-6">
+            <div className="flex justify-between items-start mb-6">
+              <div>
+                <h1 className="text-3xl font-bold text-white mb-3">{selectedBrowseTask?.title}</h1>
+                <div className="flex items-center space-x-4">
+                  <span className="px-3 py-1 bg-cyan-500/30 text-cyan-300 rounded-full text-sm font-medium">{selectedBrowseTask?.category}</span>
+                  <span className="text-white/50 text-sm">Posted {selectedBrowseTask?.postedTime}</span>
+                </div>
+              </div>
+              <div className="text-right">
+                <p className="text-3xl font-bold text-green-400">{selectedBrowseTask?.budget}</p>
+                <p className="text-white/50 text-sm">Budget</p>
+              </div>
+            </div>
+
+            <div className="space-y-6">
+              <div>
+                <h3 className="text-lg font-semibold text-white mb-2">Description</h3>
+                <p className="text-white/80">{selectedBrowseTask?.description}</p>
+              </div>
+
+              <div className="grid grid-cols-3 gap-6">
+                <div className="bg-white/5 rounded-lg p-4">
+                  <p className="text-white/50 text-sm mb-1">Location</p>
+                  <p className="text-white font-medium flex items-center"><MapPin className="w-4 h-4 mr-2 text-cyan-400" />{selectedBrowseTask?.location}</p>
+                </div>
+                <div className="bg-white/5 rounded-lg p-4">
+                  <p className="text-white/50 text-sm mb-1">Deadline</p>
+                  <p className="text-white font-medium flex items-center"><Calendar className="w-4 h-4 mr-2 text-cyan-400" />{selectedBrowseTask?.deadline}</p>
+                </div>
+                <div className="bg-white/5 rounded-lg p-4">
+                  <p className="text-white/50 text-sm mb-1">Posted By</p>
+                  <p className="text-white font-medium flex items-center"><Users className="w-4 h-4 mr-2 text-cyan-400" />{selectedBrowseTask?.requester}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Submit Offer Form */}
+          <div className="bg-white/10 backdrop-blur-md rounded-xl p-8 border border-white/20">
+            <h2 className="text-2xl font-bold text-white mb-6">Submit Your Offer</h2>
+            
+            <div className="space-y-6">
+              <div>
+                <label className="block text-sm font-semibold text-white/80 mb-2">Your Price (R)</label>
+                <input type="number" value={offerPrice} onChange={(e) => setOfferPrice(e.target.value)} placeholder="Enter your offer amount" className="w-full px-4 py-3 bg-white/10 border border-white/30 rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-cyan-400" />
+                <p className="text-white/50 text-sm mt-2">Client's budget: {selectedBrowseTask?.budget}</p>
+              </div>
+
+              <div>
+                <label className="block text-sm font-semibold text-white/80 mb-2">Your Proposal</label>
+                <textarea value={proposal} onChange={(e) => setProposal(e.target.value)} placeholder="Describe why you're the best fit for this task, your experience, and availability..." rows="4" className="w-full px-4 py-3 bg-white/10 border border-white/30 rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-cyan-400" />
+              </div>
+
+              <div className="bg-cyan-500/20 border border-cyan-400/30 rounded-lg p-4">
+                <h4 className="font-semibold text-cyan-300 mb-2">Tips for a winning proposal:</h4>
+                <ul className="text-cyan-200/80 text-sm space-y-1">
+                  <li>• Highlight relevant experience</li>
+                  <li>• Mention your availability</li>
+                  <li>• Be specific about how you'll complete the task</li>
+                  <li>• Keep it professional and friendly</li>
+                </ul>
+              </div>
+
+              <div className="flex space-x-4">
+                <button onClick={() => setCurrentView('tasker-dashboard')} className="flex-1 px-6 py-3 border border-white/30 text-white rounded-lg font-semibold hover:bg-white/10 transition">Cancel</button>
+                <button onClick={() => { showNotif('✓ Offer submitted successfully! The client will review your proposal.'); setCurrentView('tasker-dashboard'); }} className="flex-1 px-6 py-3 bg-cyan-600 text-white rounded-lg font-semibold hover:bg-cyan-700 transition">Submit Offer</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </UniversalBackground>
+    );
+  };
+
+  // Tasker Active Job View
+  const TaskerActiveJobView = () => (
+    <UniversalBackground>
+      <NavBar showBack onBack={() => setCurrentView('tasker-dashboard')} />
+      <div className="max-w-5xl mx-auto px-6 py-8">
+        <h2 className="text-3xl font-bold text-white mb-8">Active Job Details</h2>
+
+        <div className="grid grid-cols-3 gap-6 mb-8">
+          <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20">
+            <p className="text-sm text-white/60 mb-2">Status</p>
+            <p className="text-xl font-bold text-cyan-400">In Progress</p>
+          </div>
+          <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20">
+            <p className="text-sm text-white/60 mb-2">Client</p>
+            <p className="text-xl font-bold text-white">{taskerActiveTask?.requester}</p>
+          </div>
+          <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20">
+            <p className="text-sm text-white/60 mb-2">Your Earnings</p>
+            <p className="text-xl font-bold text-green-400">{taskerActiveTask?.budget}</p>
+          </div>
+        </div>
+
+        <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 mb-6 border border-white/20">
+          <h3 className="text-xl font-bold text-white mb-4">Task Details</h3>
+          <div className="space-y-3">
+            <div><p className="text-sm text-white/60">Title</p><p className="text-lg font-semibold text-white">{taskerActiveTask?.title}</p></div>
+            <div><p className="text-sm text-white/60">Description</p><p className="text-white/80">{taskerActiveTask?.description}</p></div>
+            <div className="grid grid-cols-3 gap-4 pt-4">
+              <div><p className="text-sm text-white/60">Location</p><p className="text-white font-medium">{taskerActiveTask?.location}</p></div>
+              <div><p className="text-sm text-white/60">Deadline</p><p className="text-white font-medium">{taskerActiveTask?.deadline}</p></div>
+              <div><p className="text-sm text-white/60">Category</p><p className="text-white font-medium">{taskerActiveTask?.category}</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 mb-6 border border-white/20">
+          <h3 className="text-xl font-bold text-white mb-4">Progress Updates</h3>
+          <div className="space-y-4">
+            {[
+              { label: 'Offer Accepted', time: '2 hours ago', done: true },
+              { label: 'Job Started', time: '1 hour ago', done: true },
+              { label: 'Work in Progress', time: 'Current', done: false, current: true },
+              { label: 'Awaiting Client Approval', time: 'Pending', done: false }
+            ].map((step, i) => (
+              <div key={i} className="flex items-start space-x-4">
+                <div className={`w-8 h-8 rounded-full flex items-center justify-center ${step.done ? 'bg-green-500' : step.current ? 'bg-cyan-600' : 'bg-white/20'}`}>
+                  <CheckCircle className="w-5 h-5 text-white" />
+                </div>
+                <div className="flex-1">
+                  <p className={`font-semibold ${step.done || step.current ? 'text-white' : 'text-white/40'}`}>{step.label}</p>
+                  <p className={`text-sm ${step.done || step.current ? 'text-white/60' : 'text-white/30'}`}>{step.time}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="grid grid-cols-2 gap-6">
+          <div className="bg-cyan-500/20 border border-cyan-400/30 rounded-xl p-6">
+            <div className="flex items-start space-x-4">
+              <MessageSquare className="w-6 h-6 text-cyan-400 mt-1" />
+              <div className="flex-1">
+                <h4 className="font-semibold text-white mb-2">Contact Client</h4>
+                <p className="text-white/70 mb-4">Keep the client updated on your progress.</p>
+                <button className="px-4 py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700 transition">Send Message</button>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20">
+            <div className="flex items-start space-x-4">
+              <Upload className="w-6 h-6 text-white/70 mt-1" />
+              <div className="flex-1">
+                <h4 className="font-semibold text-white mb-2">Upload Proof</h4>
+                <p className="text-white/70 mb-4">Submit photos or documents as proof of completion.</p>
+                <button className="px-4 py-2 border border-white/30 text-white rounded-lg hover:bg-white/10 transition">Upload Files</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 mt-6 border border-white/20">
+          <h3 className="text-xl font-bold text-white mb-4">Mark Job as Complete</h3>
+          <p className="text-white/70 mb-4">Once you've finished the work, mark the job as complete. The client will then review and approve the completion to release your payment.</p>
+          <button onClick={() => { showNotif('✓ Job marked as complete! Awaiting client approval for payment release.'); setCurrentView('tasker-dashboard'); }} className="px-6 py-3 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition">Mark as Complete</button>
+        </div>
+      </div>
+    </UniversalBackground>
+  );
+
   return (
     <div className="w-full h-screen overflow-auto">
       <Notification />
@@ -599,6 +908,9 @@ export default function TaskNestDemo() {
       {currentView === 'task-tracking' && <TaskTrackingView />}
       {currentView === 'task-completion' && <TaskCompletionView />}
       {currentView === 'payment-success' && <PaymentSuccessView />}
+      {currentView === 'tasker-dashboard' && <TaskerDashboard />}
+      {currentView === 'task-detail' && <TaskDetailView />}
+      {currentView === 'tasker-active-job' && <TaskerActiveJobView />}
     </div>
   );
 }
