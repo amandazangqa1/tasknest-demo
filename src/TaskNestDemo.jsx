@@ -100,10 +100,10 @@ export default function TaskNestDemo() {
   ];
   const categories = ['Home Repair', 'Cleaning', 'Moving', 'Outdoor', 'Assembly', 'Other'];
   const availableTasks = [
-    { id: 1, title: 'Fix leaking tap', category: 'Home Repair', budget: 'R450', location: 'Sandton', deadline: 'Today', description: 'Kitchen tap leaking.', requester: 'John M.', postedTime: '2h ago' },
-    { id: 2, title: 'Deep clean house', category: 'Cleaning', budget: 'R800', location: 'Rosebank', deadline: 'Tomorrow', description: 'Full cleaning needed.', requester: 'Sarah K.', postedTime: '4h ago' },
-    { id: 3, title: 'Move furniture', category: 'Moving', budget: 'R1200', location: 'Braamfontein', deadline: '2 days', description: 'Move couch and bed.', requester: 'David L.', postedTime: '1h ago' },
-    { id: 4, title: 'Garden work', category: 'Outdoor', budget: 'R350', location: 'Fourways', deadline: '3 days', description: 'Mowing and trimming.', requester: 'Linda P.', postedTime: '5h ago' }
+    { id: 1, title: 'Fix leaking tap', category: 'Home Repair', budget: 'R450', location: 'Waterfall', deadline: 'Today', description: 'Kitchen tap leaking.', requester: 'John M.', postedTime: '2h ago' },
+    { id: 2, title: 'Deep clean house', category: 'Cleaning', budget: 'R800', location: 'Corana', deadline: 'Tomorrow', description: 'Full cleaning needed.', requester: 'Sarah K.', postedTime: '4h ago' },
+    { id: 3, title: 'Move furniture', category: 'Moving', budget: 'R1200', location: 'Southridge', deadline: '2 days', description: 'Move couch and bed.', requester: 'David L.', postedTime: '1h ago' },
+    { id: 4, title: 'Garden work', category: 'Outdoor', budget: 'R350', location: 'Mbuqe', deadline: '3 days', description: 'Mowing and trimming.', requester: 'Linda P.', postedTime: '5h ago' }
   ];
 
   const Badges = ({ t }) => (
@@ -157,7 +157,7 @@ export default function TaskNestDemo() {
             )}
             {signStep === 2 && (
               <div className="space-y-3">
-                {['ID Photo', 'Proof of Residence'].map(l => (<div key={l} onClick={() => setForm({...form, [l === 'ID Photo' ? 'idPhoto' : 'por']: 'done'})} className="border-2 border-dashed border-white/30 rounded-lg p-3 text-center cursor-pointer hover:border-cyan-500">{form[l === 'ID Photo' ? 'idPhoto' : 'por'] ? <span className="text-green-400 text-sm flex items-center justify-center gap-1"><CheckCircle size={14}/>{l} Uploaded</span> : <span className="text-white/50 text-sm flex items-center justify-center gap-1"><Upload size={14}/>Upload {l} *</span>}</div>))}
+                {['ID Copy', 'Proof of Residence'].map(l => (<div key={l} onClick={() => setForm({...form, [l === 'ID Copy' ? 'idCopy' : 'por']: 'done'})} className="border-2 border-dashed border-white/30 rounded-lg p-3 text-center cursor-pointer hover:border-cyan-500">{form[l === 'ID Photo' ? 'idPhoto' : 'por'] ? <span className="text-green-400 text-sm flex items-center justify-center gap-1"><CheckCircle size={14}/>{l} Uploaded</span> : <span className="text-white/50 text-sm flex items-center justify-center gap-1"><Upload size={14}/>Upload {l} *</span>}</div>))}
                 {authType === 'tasker' && ['Police Clearance *', "Driver's License (Optional)"].map(l => (<div key={l} onClick={() => setForm({...form, [l.includes('Police') ? 'pc' : 'dl']: 'done'})} className="border-2 border-dashed border-white/30 rounded-lg p-3 text-center cursor-pointer hover:border-cyan-500">{form[l.includes('Police') ? 'pc' : 'dl'] ? <span className="text-green-400 text-sm flex items-center justify-center gap-1"><CheckCircle size={14}/>Uploaded</span> : <span className="text-white/50 text-sm flex items-center justify-center gap-1"><Upload size={14}/>{l}</span>}</div>))}
                 <div className="flex gap-2"><button onClick={() => setSignStep(1)} className="flex-1 py-2 border border-white/30 text-white rounded-lg">Back</button><button onClick={() => setSignStep(3)} className="flex-1 py-2 bg-cyan-600 text-white rounded-lg">Continue</button></div>
               </div>
