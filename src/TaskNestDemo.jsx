@@ -1576,11 +1576,11 @@ export default function TaskNestDemo() {
           <h2 className="text-4xl font-light text-white mb-12 text-center tracking-tight">Popular Categories</h2>
           <div className="grid grid-cols-5 gap-6">
             {[
-      {icon: Package, title: 'Package Pick Ups', gradient: 'from-cyan-500 to-teal-600', shadow: 'shadow-cyan-500/30'},
-      {icon: RotateCcw, title: 'Store Returns', gradient: 'from-teal-500 to-cyan-700', shadow: 'shadow-teal-500/30'},
+      {icon: Package, title: 'Package Pick Ups', gradient: from-cyan-600 to-blue-600', shadow: 'shadow-cyan-600/30'},
+      {icon: RotateCcw, title: 'Store Returns', gradient: from-cyan-600 to-blue-600', shadow: 'shadow-teal-600/30'},
       {icon: Mail, title: 'Mailing Packages', gradient: 'from-cyan-600 to-blue-600', shadow: 'shadow-cyan-600/30'},
-      {icon: Truck, title: 'Deliveries', gradient: 'from-teal-600 to-emerald-600', shadow: 'shadow-teal-600/30'},
-      {icon: Clock, title: 'Queueing', gradient: 'from-cyan-400 to-teal-500', shadow: 'shadow-cyan-400/30'}
+      {icon: Truck, title: 'Deliveries', gradient: from-cyan-600 to-blue-600', shadow: 'shadow-teal-600/30'},
+      {icon: Clock, title: 'Queueing', gradient: from-cyan-600 to-blue-600' shadow: 'shadow-cyan-600/30'}
             ].map((c, i) => (
               <div key={i} className={`group cursor-pointer transition-all duration-300 hover:scale-110 hover:-translate-y-2`}>
                 <div className={`bg-gradient-to-br ${c.gradient} rounded-2xl p-6 text-center shadow-lg ${c.shadow} hover:shadow-xl transition-shadow`}>
