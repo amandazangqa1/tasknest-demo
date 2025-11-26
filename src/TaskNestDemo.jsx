@@ -1577,9 +1577,9 @@ export default function TaskNestDemo() {
           <div className="grid grid-cols-5 gap-6">
             {[
       {icon: Package, title: 'Package Pick Ups', gradient: from-cyan-600 to-blue-600', shadow: 'shadow-cyan-600/30'},
-      {icon: RotateCcw, title: 'Store Returns', gradient: from-cyan-600 to-blue-600', shadow: 'shadow-teal-600/30'},
+      {icon: RotateCcw, title: 'Store Returns/Exchanges', gradient: from-cyan-600 to-blue-600', shadow: 'shadow-cyan-600/30'},
       {icon: Mail, title: 'Mailing Packages', gradient: 'from-cyan-600 to-blue-600', shadow: 'shadow-cyan-600/30'},
-      {icon: Truck, title: 'Deliveries', gradient: from-cyan-600 to-blue-600', shadow: 'shadow-teal-600/30'},
+      {icon: Truck, title: 'Deliveries', gradient: from-cyan-600 to-blue-600', shadow: 'shadow-cyan-600/30'},
       {icon: Clock, title: 'Queueing', gradient: from-cyan-600 to-blue-600' shadow: 'shadow-cyan-600/30'}
             ].map((c, i) => (
               <div key={i} className={`group cursor-pointer transition-all duration-300 hover:scale-110 hover:-translate-y-2`}>
