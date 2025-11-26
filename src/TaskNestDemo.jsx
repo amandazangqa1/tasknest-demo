@@ -38,7 +38,6 @@ import { Users,
         TrendingUp,
         Target,
         ThumbsUp,
-        MapPinned,
         RotateCcw,
         Mail,
         ArrowRight, 
@@ -1297,7 +1296,7 @@ export default function TaskNestDemo() {
           <div className="space-y-2 mb-4">
             {taskInProgress.fromLocation && (
               <div className={`flex items-center gap-2 p-2 rounded-lg ${currentStageIndex >= stageOrder.indexOf('at_pickup') ? 'bg-green-500/20' : 'bg-white/5'}`}>
-                <MapPinned size={16} className={currentStageIndex >= stageOrder.indexOf('at_pickup') ? 'text-green-400' : 'text-cyan-400'}/>
+                <MapPin size={16} className={currentStageIndex >= stageOrder.indexOf('at_pickup') ? 'text-green-400' : 'text-cyan-400'}/>
                 <div>
                   <p className="text-white/60 text-xs">Pickup</p>
                   <p className="text-white text-sm">{taskInProgress.fromLocation}</p>
